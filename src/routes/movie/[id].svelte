@@ -13,10 +13,15 @@
 </script>
 
 <script>
+	import { fly } from 'svelte/transition';
 	export let movieDetail;
 </script>
 
-<div class="px-5 my-8 max-w-7xl mx-auto">
+<div
+	class="px-5 my-8 max-w-7xl mx-auto"
+	in:fly={{ duration: 400, delay: 400 }}
+	out:fly={{ duration: 400 }}
+>
 	<div class="w-full">
 		<img
 			class="w-full rounded-2xl"

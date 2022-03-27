@@ -1,7 +1,8 @@
 <script context="module">
+	const secretKey = process.env.API_KEY;
 	export async function load({ fetch }) {
 		const res = await fetch(
-			`https://api.themoviedb.org/3/movie/popular?api_key=f3f4166bd2e2bdc88a9f6f8375f1010a&language=en-US&page=1`
+			`https://api.themoviedb.org/3/movie/popular?api_key=${secretKey}&language=en-US&page=1`
 		);
 		const data = await res.json();
 		if (res.ok) {
@@ -14,12 +15,14 @@
 
 <script>
 	import PopularMovies from '../components/PopularMovies.svelte';
+	import { fly } from 'svelte/transition';
+	import 'dotenv/config';
 	export let popular;
 </script>
 
-<div>
+<section in:fly={{ duration: 400, delay: 400 }} out:fly={{ duration: 400 }}>
 	<PopularMovies {popular} />
-</div>
+</section>
 
 <style>
 </style>

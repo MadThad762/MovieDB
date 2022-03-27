@@ -3,7 +3,7 @@
 </script>
 
 <div class="mx-auto">
-	<a href={'/movie/' + movie.id}>
+	<a sveltekit:prefetch sveltekit:noscroll href={'/movie/' + movie.id}>
 		<img
 			class="rounded-lg mt-5 mb-3"
 			src={'https://image.tmdb.org/t/p/w500' + movie.poster_path}
